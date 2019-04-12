@@ -26,6 +26,6 @@ public class PatientController {
     public ResponseEntity getValidity(@RequestParam("rut") String rut)
     {
         Patient patient = patientDAO.findByRut(rut);
-        return ResponseEntity.ok(Collections.singletonMap("validity",true));
+        return ResponseEntity.ok(patientService.verifyExpirationDate(patient));
     }
 }
