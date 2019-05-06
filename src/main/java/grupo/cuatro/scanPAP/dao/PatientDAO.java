@@ -7,5 +7,5 @@ import java.util.Optional;
 
 public interface PatientDAO extends JpaRepository<Patient,Long> {
 
-    Patient findByRut(String rut);
+    Patient findByRun(String run);
 }

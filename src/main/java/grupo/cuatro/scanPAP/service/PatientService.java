@@ -1,50 +1,53 @@
 package grupo.cuatro.scanPAP.service;
 
 import grupo.cuatro.scanPAP.dao.PatientDAO;
+import grupo.cuatro.scanPAP.dto.PatientDTO;
+import grupo.cuatro.scanPAP.mapper.PatientMapper;
 import grupo.cuatro.scanPAP.model.Patient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.HashMap;
-import java.util.Map;
 
 @Service
 public class PatientService {
 
     private final PatientDAO patientDAO;
+    private final PatientMapper patientMapper;
 
     @Autowired
-    public PatientService(PatientDAO patientDAO) {
+    public PatientService(PatientDAO patientDAO, PatientMapper patientMapper) {
         this.patientDAO = patientDAO;
+        this.patientMapper = patientMapper;
     }
 
 
-    public Map<String, Object> verifyExpirationDate(Patient patient)
+    public PatientDTO getPatientInfo(String run)
     {
-        Map<String, Object> response = new HashMap<String, Object>();
-        LocalDate expirationDate = LocalDate.of(patient.getExpirationDate().getYear(),
-                patient.getExpirationDate().getMonth(),patient.getExpirationDate().getDayOfMonth()).minusDays(7);
+
+        Patient patient = patientDAO.findByRun(run);
+        LocalDate expirationDate = LocalDate.of(patient.getValidityDate().getYear(),
+                patient.getValidityDate().getMonth(),patient.getValidityDate().getDayOfMonth()).minusDays(30);
 
         LocalDate today = LocalDate.now();
 
         Period difference = Period.between(expirationDate,today);
-        int ages = difference.getYears();
+        int diffYears = difference.getYears();
 
-        if (ages >= 1)
+
+
+        if (diffYears >= 1)
         {
-            response.put("years", ages);
-            response.put("validity", true);
-            return response;
+            //FALSE: NO ESTÁ VIGENTE
+            return patientMapper.toPatientDTO(patient,false, diffYears);
         }
         else
         {
-            response.put("years", ages);
-            response.put("validity",false);
-            return response;
+            return patientMapper.toPatientDTO(patient, true, diffYears);
         }
     }
+
 
 
 }

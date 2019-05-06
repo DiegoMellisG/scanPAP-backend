@@ -2,6 +2,7 @@ package grupo.cuatro.scanPAP.model;
 
 
 import lombok.Data;
+import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
 import java.time.ZonedDateTime;
@@ -22,15 +23,53 @@ public class Patient {
     )
     private Long idPatient;
 
+
     @Column(
-            name = "RUT",
+            name = "RUN",
+            length = 10,
             unique = true,
             nullable = false
     )
-    private String rut;
+    @NaturalId
+    private String run;
 
     @Column(
-            name = "EXPIRATION_DATE"
+            name = "NAME",
+            nullable = false
     )
-    private ZonedDateTime expirationDate;
+    private String name;
+
+    @Column(
+            name = "AGE",
+            nullable = false
+    )
+    private int age;
+
+    @Column(
+            name = "BIRTH_DATE",
+            nullable = false
+    )
+    private ZonedDateTime birthdate;
+
+    @Column(
+            name = "PHONE_NUMBER",
+            unique = true,
+            nullable = false
+    )
+    private String phoneNumber;
+
+    @OneToOne(mappedBy = "patient")
+    private User user;
+
+    @Column(
+            name = "LAST_PAP_DATE",
+            nullable = false
+    )
+    private ZonedDateTime lastPapDate;
+    @Column(
+            name = "VALIDITY_DATE"
+    )
+    private ZonedDateTime validityDate;
+
+
 }
