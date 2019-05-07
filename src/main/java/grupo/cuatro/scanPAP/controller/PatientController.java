@@ -21,9 +21,9 @@ public class PatientController {
     }
 
     @RequestMapping(value = "consultation", method = RequestMethod.GET)
-    public ResponseEntity getPatientConsultation(@RequestParam("rut") String rut)
+    public ResponseEntity getPatientConsultation(@RequestParam("run") String run)
     {
-        return ResponseEntity.ok(patientService.getPatientInfo(rut));
+        return ResponseEntity.ok(patientService.getPatientInfo(run));
     }
 
 
