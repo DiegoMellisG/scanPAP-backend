@@ -10,9 +10,9 @@ public class PatientDTO {
     private String name;
     private String run;
     private Integer age;
-    private ZonedDateTime birthDate;
-    private ZonedDateTime lastPapDate;
-    private ZonedDateTime validityDate;
+    private String birthDate;
+    private String lastPapDate;
+    private String validityDate;
     private boolean validity;
     private Integer diffYears;
     private Integer diffMonths;
