@@ -14,7 +14,7 @@ public class Patient {
 
     @Id
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE
+            strategy = GenerationType.AUTO
     )
     @Column(
             name = "PATIENT_ID",
@@ -23,14 +23,11 @@ public class Patient {
     )
     private Long idPatient;
 
-
     @Column(
             name = "RUN",
-            length = 10,
             unique = true,
             nullable = false
     )
-    @NaturalId
     private String run;
 
     @Column(
@@ -49,7 +46,7 @@ public class Patient {
             name = "BIRTH_DATE",
             nullable = false
     )
-    private ZonedDateTime birthdate;
+    private ZonedDateTime birthDate;
 
     @Column(
             name = "PHONE_NUMBER",
@@ -57,9 +54,6 @@ public class Patient {
             nullable = false
     )
     private String phoneNumber;
-
-    @OneToOne(mappedBy = "patient")
-    private User user;
 
     @Column(
             name = "LAST_PAP_DATE",

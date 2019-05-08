@@ -15,6 +15,8 @@ public class PatientDTO {
     private ZonedDateTime validityDate;
     private boolean validity;
     private Integer diffYears;
+    private Integer diffMonths;
+    private Integer diffDays;
 
 
 }
