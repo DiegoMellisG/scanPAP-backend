@@ -1,6 +1,7 @@
 package grupo.cuatro.scanPAP.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.annotations.NaturalId;
 
@@ -67,6 +68,7 @@ public class Patient {
 
     @ManyToOne
     @JoinColumn(name = "CENTER_ID")
+    @JsonIgnore
     private Center center;
 
 }
