@@ -4,6 +4,7 @@ package grupo.cuatro.scanPAP.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -20,4 +21,7 @@ public class Center {
 
     @Column(name="ADDRESS", length=50)
     private String addressCenter;
+
+    @OneToMany(mappedBy = "center", cascade = CascadeType.ALL)
+    private List<Patient> patients;
 }

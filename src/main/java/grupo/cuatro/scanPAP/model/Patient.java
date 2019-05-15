@@ -65,5 +65,8 @@ public class Patient {
     )
     private ZonedDateTime validityDate;
 
+    @ManyToOne
+    @JoinColumn(name = "CENTER_ID")
+    private Center center;
 
 }
