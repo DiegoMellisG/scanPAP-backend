@@ -8,8 +8,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class CenterService {
 
+    private final CenterDAO centerDAO;
+
     @Autowired
-    private CenterDAO centerDAO;
+    public CenterService(CenterDAO centerDAO) {
+        this.centerDAO = centerDAO;
+    }
 
     public Center getCenterByID(long id)
     {

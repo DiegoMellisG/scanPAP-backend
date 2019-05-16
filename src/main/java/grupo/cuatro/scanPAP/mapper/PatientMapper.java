@@ -16,6 +16,7 @@ public class PatientMapper {
         patientDTO.setName(patient.getName());
         patientDTO.setRun(patient.getRun());
         patientDTO.setAge(patient.getAge());
+        patientDTO.setCenter(patient.getCenter());
         patientDTO.setBirthDate(DateTimeFormatter.ofPattern("dd/MM/yyyy").format(patient.getBirthDate()));
         patientDTO.setLastPapDate(DateTimeFormatter.ofPattern("dd/MM/yyyy").format(patient.getLastPapDate()));
         patientDTO.setValidityDate(DateTimeFormatter.ofPattern("dd/MM/yyyy").format(patient.getValidityDate()));
@@ -23,6 +24,7 @@ public class PatientMapper {
         patientDTO.setDiffYears(years);
         patientDTO.setDiffMonths(months);
         patientDTO.setDiffDays(days);
+
         return patientDTO;
 
     }

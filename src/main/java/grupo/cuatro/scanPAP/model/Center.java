@@ -14,13 +14,13 @@ public class Center {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="CENTER_ID", nullable = false, unique=true)
-    private long idCenter;
+    private Long idCenter;
 
     @Column(name="NAME", length=50)
-    private String nameCenter;
+    private String name;
 
     @Column(name="ADDRESS", length=50)
-    private String addressCenter;
+    private String address;
 
     @OneToMany(mappedBy = "center", cascade = CascadeType.ALL)
     private List<Patient> patients;

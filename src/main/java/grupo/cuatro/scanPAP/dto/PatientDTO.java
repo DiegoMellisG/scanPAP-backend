@@ -1,5 +1,6 @@
 package grupo.cuatro.scanPAP.dto;
 
+import grupo.cuatro.scanPAP.model.Center;
 import lombok.Data;
 
 import java.time.ZonedDateTime;
@@ -17,6 +18,7 @@ public class PatientDTO {
     private Integer diffYears;
     private Integer diffMonths;
     private Integer diffDays;
+    private Center center;
 
 
 }
