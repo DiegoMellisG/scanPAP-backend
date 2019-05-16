@@ -22,11 +22,11 @@ public class CenterService {
 
     public Center getCenterByName(String name)
     {
-        return centerDAO.findByNameCenter(name);
+        return centerDAO.findByName(name);
     }
 
     public Center getCenterByAddress(String address)
     {
-        return centerDAO.findByAddressCenter(address);
+        return centerDAO.findByAddress(address);
     }
 }

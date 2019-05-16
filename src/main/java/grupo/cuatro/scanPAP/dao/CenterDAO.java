@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface CenterDAO extends JpaRepository<Center, Long> {
 
     Center findByIdCenter(Long id);
-    Center findByAddressCenter(String address);
-    Center findByNameCenter(String name);
+    Center findByAddress(String address);
+    Center findByName(String name);
 }

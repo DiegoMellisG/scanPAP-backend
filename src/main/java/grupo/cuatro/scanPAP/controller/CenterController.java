@@ -2,7 +2,6 @@ package grupo.cuatro.scanPAP.controller;
 
 
 import grupo.cuatro.scanPAP.service.CenterService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
