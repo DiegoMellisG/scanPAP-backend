@@ -1,5 +1,6 @@
 package grupo.cuatro.scanPAP.dto;
 
+import grupo.cuatro.scanPAP.model.Center;
 import lombok.Data;
 
 @Data
@@ -15,6 +16,7 @@ public class PatientDTO {
     private Integer diffYears;
     private Integer diffMonths;
     private Integer diffDays;
+    private Center center;
 
 
 }
