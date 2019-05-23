@@ -33,8 +33,6 @@ public class PatientControllerTest {
     @MockBean
     private PatientController patientController;
 
-
-
     @Test
     public void getPatient() throws Exception {
 
@@ -54,7 +52,7 @@ public class PatientControllerTest {
         ResponseEntity<PatientDTO> ptn = ResponseEntity.ok(patient);
         given(patientController.getPatientConsultation("12345678-9")).willReturn(ptn);
 
-        mvc.perform(get("/app/consultation").param("run","12345678-9")
+        mvc.perform(get("/consultation").param("run","12345678-9")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
