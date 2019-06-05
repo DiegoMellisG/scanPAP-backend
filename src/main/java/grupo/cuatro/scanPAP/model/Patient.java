@@ -3,8 +3,6 @@ package grupo.cuatro.scanPAP.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import org.hibernate.annotations.NaturalId;
-
 import javax.persistence.*;
 import java.time.ZonedDateTime;
 
@@ -32,6 +30,12 @@ public class Patient {
     private String run;
 
     @Column(
+            name = "ACCESS_TOKEN",
+            unique = true
+    )
+    private String accessToken;
+
+    @Column(
             name = "NAME",
             nullable = false
     )
@@ -41,7 +45,7 @@ public class Patient {
             name = "AGE",
             nullable = false
     )
-    private int age;
+    private Integer age;
 
     @Column(
             name = "BIRTH_DATE",
