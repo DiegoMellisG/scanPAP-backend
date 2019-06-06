@@ -17,6 +17,5 @@ public class PatientDTO {
     private Integer diffMonths;
     private Integer diffDays;
     private Center center;
-
-
+    private String accessToken;
 }

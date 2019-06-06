@@ -40,7 +40,6 @@ public class Patient {
             nullable = false
     )
     private String name;
-
     @Column(
             name = "AGE",
             nullable = false
