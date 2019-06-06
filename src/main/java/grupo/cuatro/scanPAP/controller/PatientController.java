@@ -29,7 +29,7 @@ public class PatientController {
     @RequestMapping(value = "setToken", method = RequestMethod.PUT)
     public ResponseEntity setToken(@RequestParam("run") String run, @RequestParam("token") String token)
     {
-        return ResponseEntity.ok(patientService.SAT(run, token));
+        return ResponseEntity.ok(patientService.setAccessToken(run, token));
     }
 
 

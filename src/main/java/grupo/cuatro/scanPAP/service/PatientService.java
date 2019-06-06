@@ -60,7 +60,7 @@ public class PatientService {
             return patientMapper.toPatientDTO(patient, true, diffYears, diffMonths, diffDays);
     }
 
-    public Patient SAT(String run, String token)
+    public Patient setAccessToken (String run, String token)
     {
         Patient patient = patientDAO.findByRun(run);
         patient.setAccessToken(token);

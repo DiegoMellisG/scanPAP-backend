@@ -24,7 +24,8 @@ public class PatientMapper {
         patientDTO.setDiffYears(years);
         patientDTO.setDiffMonths(months);
         patientDTO.setDiffDays(days);
-
+        patientDTO.setAccessToken(patient.getAccessToken());
+        
         return patientDTO;
 
     }
