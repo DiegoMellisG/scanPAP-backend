@@ -63,6 +63,13 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.kinoroy.expo.push/expo-push-sdk -->
+		<dependency>
+			<groupId>com.kinoroy.expo.push</groupId>
+			<artifactId>expo-push-sdk</artifactId>
+			<version>0.1.4</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

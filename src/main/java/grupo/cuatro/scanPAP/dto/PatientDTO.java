@@ -6,13 +6,14 @@ import lombok.Data;
 @Data
 public class PatientDTO {
 
+    private Long idPatient;
     private String name;
     private String run;
     private Integer age;
     private String birthDate;
     private String lastPapDate;
     private String validityDate;
-    private boolean validity;
+    private Boolean validity;
     private Integer diffYears;
     private Integer diffMonths;
     private Integer diffDays;
