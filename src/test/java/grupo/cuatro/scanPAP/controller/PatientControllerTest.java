@@ -20,8 +20,7 @@ import java.sql.SQLOutput;
 
 import static org.hamcrest.core.Is.is;
 import static org.mockito.BDDMockito.given;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -38,6 +37,19 @@ public class PatientControllerTest {
     @MockBean
     private PatientController patientController;
 
+
+    @Test
+    public void postAccessToken() throws Exception
+    {
+        mvc.perform(put("/setToken")
+                .param("run", "12345678-9")
+                .param("token", "token-test")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk());
+    }
+
+    
     @Test
     public void getPatient() throws Exception {
 
@@ -53,7 +65,6 @@ public class PatientControllerTest {
         patient.setValidity(true);
         patient.setBirthDate("test");
         patient.setValidityDate("test");
-        patient.setAccessToken("token-test");
 
         ResponseEntity<PatientDTO> ptn = ResponseEntity.ok(patient);
         given(patientController.getPatientConsultation("12345678-9")).willReturn(ptn);
@@ -64,10 +75,7 @@ public class PatientControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name",is(patient.getName())));
 
-        mvc.perform(post("/setToken")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(objectMapper.writeValueAsString(patient)))
-        .andExpect(status().isCreated());
-        System.out.println("Test finished");
     }
+
+
 }
