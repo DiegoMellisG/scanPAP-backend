@@ -26,7 +26,7 @@ public class PatientController {
         return ResponseEntity.ok(patientService.getPatientInfo(run));
     }
 
-    @RequestMapping(value = "access_token", method = RequestMethod.PUT)
+    @RequestMapping(value = "access_token", method = RequestMethod.POST)
     public ResponseEntity setToken(@RequestParam("idPatient") Long idPatient, @RequestParam("token") String token)
     {
         return ResponseEntity.ok(patientService.setAccessToken(idPatient, token));
