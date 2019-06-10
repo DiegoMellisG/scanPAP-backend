@@ -22,7 +22,7 @@ public class ExpoPushNotification {
         this.patientDAO = patientDAO;
     }
 
-    @Scheduled(cron = "0 50 16 * * *")
+    @Scheduled(cron = "0 55 20 * * *")
     public void sendPushNotifications()
     {
         //OBTENEMOS LAS PACIENTES CUYA FECHA DE VIGENCIA SE ENCUENTRA VENCIDA
