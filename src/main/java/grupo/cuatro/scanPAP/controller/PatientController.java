@@ -1,6 +1,7 @@
 package grupo.cuatro.scanPAP.controller;
 
 import grupo.cuatro.scanPAP.dao.PatientDAO;
+import grupo.cuatro.scanPAP.dto.PatientDTO;
 import grupo.cuatro.scanPAP.service.PatientService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,10 +27,11 @@ public class PatientController {
         return ResponseEntity.ok(patientService.getPatientInfo(run));
     }
 
-    @RequestMapping(value = "access_token", method = RequestMethod.POST)
-    public ResponseEntity setToken(@RequestParam("idPatient") Long idPatient, @RequestParam("token") String token)
+    @RequestMapping(value = "access_token", method = RequestMethod.PUT)
+    @ResponseBody
+    public ResponseEntity setToken(@RequestBody PatientDTO resource)
     {
-        return ResponseEntity.ok(patientService.setAccessToken(idPatient, token));
+        return ResponseEntity.ok(patientService.setAccessToken(resource.getIdPatient(), resource.getAccessToken()));
     }
 
 
