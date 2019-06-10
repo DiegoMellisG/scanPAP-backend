@@ -9,5 +9,6 @@ import java.util.List;
 public interface PatientDAO extends JpaRepository<Patient,Long> {
 
     Patient findByRun(String run);
+    Patient findByIdPatient(Long idPatient);
     List<Patient> findPatientsByValidityDateBefore(ZonedDateTime now);
 }

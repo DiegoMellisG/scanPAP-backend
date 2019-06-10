@@ -28,9 +28,9 @@ public class PatientService {
         return patientMapper.toPatientDTO(patient);
     }
 
-    public PatientDTO setAccessToken (String run, String token)
+    public PatientDTO setAccessToken (Long idPatient, String token)
     {
-        Patient patient = patientDAO.findByRun(run);
+        Patient patient = patientDAO.findByIdPatient(idPatient);
         patient.setAccessToken(token);
         patientDAO.save(patient);
         return patientMapper.toPatientDTO(patient);
