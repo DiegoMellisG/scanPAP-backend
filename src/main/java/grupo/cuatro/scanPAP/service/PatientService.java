@@ -28,13 +28,15 @@ public class PatientService {
         return patientMapper.toPatientDTO(patient);
     }
 
-    public Patient setAccessToken (String run, String token)
+    public PatientDTO setAccessToken (String run, String token)
     {
         Patient patient = patientDAO.findByRun(run);
         patient.setAccessToken(token);
         patientDAO.save(patient);
-        return patient;
+        return patientMapper.toPatientDTO(patient);
     }
+
+    
 
 
 
