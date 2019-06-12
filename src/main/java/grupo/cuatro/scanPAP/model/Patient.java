@@ -30,7 +30,7 @@ public class Patient {
     private String run;
 
     @Column(
-            name = "ACCESS_TOKEN",
+            name = "ACCESS_TOKEN"
     )
     private String accessToken;
 
