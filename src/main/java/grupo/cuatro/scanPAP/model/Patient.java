@@ -31,7 +31,6 @@ public class Patient {
 
     @Column(
             name = "ACCESS_TOKEN",
-            unique = true
     )
     private String accessToken;
 
