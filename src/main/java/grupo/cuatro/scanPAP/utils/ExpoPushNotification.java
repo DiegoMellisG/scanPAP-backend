@@ -22,7 +22,7 @@ public class ExpoPushNotification {
         this.patientDAO = patientDAO;
     }
 
-    @Scheduled(cron = "0 30 23 * * *")
+    @Scheduled(cron = "0 25 3 * * *")
     public void sendPushNotifications()
     {
         //OBTENEMOS LAS PACIENTES CUYA FECHA DE VIGENCIA SE ENCUENTRA VENCIDA
@@ -37,8 +37,8 @@ public class ExpoPushNotification {
             Patient patient = (Patient) patientIterator.next();
             Message message = new Message.Builder()
                     .to(patient.getAccessToken())
-                    .title(patient.getName()+ "! tienes tu PAP vencido")
-                    .body("Tienes tu examen PAP vencido, es importante que vayas a tu CESFAM y te lo realices")
+                    .title("¡Tienes tu PAP vencido!")
+                    .body(patient.getName()+" es importante que vayas a tu CESFAM y te lo realices")
                     .build();
             messages.add(message);
         }
@@ -46,9 +46,8 @@ public class ExpoPushNotification {
         try {
             PushTicketResponse response = ExpoPushClient.sendPushNotifications(messages);
             List<ExpoError> errors = response.getErrors();
-            // If there is an error with the *entire request*:
-            // The errors object will be an list of errors,
-            // (usually just one)
+
+
             if (errors != null) {
                 for (ExpoError error : errors) {
                     // Handle the errors
