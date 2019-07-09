@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import static com.kinoroy.expo.push.Priority.HIGH;
+
 @Component
 public class ExpoPushNotification {
 
@@ -39,6 +41,7 @@ public class ExpoPushNotification {
                     .to(patient.getAccessToken())
                     .title("¡Tienes tu PAP vencido!")
                     .body(patient.getName()+" es importante que vayas a tu CESFAM y te lo realices")
+                    .priority(HIGH)
                     .build();
             messages.add(message);
         }
